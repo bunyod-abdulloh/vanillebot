@@ -4,7 +4,7 @@ __pycache__/
 *.py[codz]
 *$py.class
 
-#loader.py
+loader.py
 
 
 # C extensions
