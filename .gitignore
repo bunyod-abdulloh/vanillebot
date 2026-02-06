@@ -4,8 +4,8 @@ __pycache__/
 *.py[codz]
 *$py.class
 
-loader.py
-result.py
+#loader.py
+
 
 # C extensions
 *.so
