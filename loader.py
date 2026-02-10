@@ -3,6 +3,7 @@ from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 from data import config
 from utils.db_api.admins import SendingDB
+from utils.db_api.clients_db import ClientsDB
 from utils.db_api.create_tables import Database
 from utils.db_api.users import UsersDB
 
@@ -20,3 +21,4 @@ dp = Dispatcher(bot, storage=storage)
 db = Database()
 udb = UsersDB(db)
 sdb = SendingDB(db)
+clsdb = ClientsDB(db)

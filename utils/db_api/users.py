@@ -5,9 +5,9 @@ class UsersDB:
     def __init__(self, db: Database):
         self.db = db
         
-    async def add_user(self, telegram_id, full_name, phone_number):
-        sql = "INSERT INTO users (telegram_id, full_name, phone_number) VALUES ($1, $2, $3) ON CONFLICT (telegram_id) DO NOTHING"
-        await self.db.execute(sql, telegram_id, full_name, phone_number)
+    async def add_user(self, telegram_id):
+        sql = "INSERT INTO users (telegram_id) VALUES ($1) ON CONFLICT (telegram_id) DO NOTHING"
+        await self.db.execute(sql, telegram_id)
 
     async def check_user(self, telegram_id):
         sql = "SELECT EXISTS (SELECT 1 FROM users WHERE telegram_id = $1)"

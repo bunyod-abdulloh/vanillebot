@@ -40,22 +40,44 @@ class Database:
             return await conn.execute(query, *args)
 
     # =======================
-    # CREATE TABLES
+    # CREATE TABLES + INDEXES
     # =======================
     async def create_tables(self):
         sql = """
+        -- USERS
         CREATE TABLE IF NOT EXISTS users (
             id SERIAL PRIMARY KEY,
-            telegram_id BIGINT UNIQUE NOT NULL,            
+            telegram_id BIGINT NOT NULL UNIQUE
+        );
+
+        -- CLIENTS
+        CREATE TABLE IF NOT EXISTS clients (
+            id SERIAL PRIMARY KEY,
+            user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
             full_name VARCHAR(255) NOT NULL,
-            phone_number VARCHAR(20) NULL,
+            phone VARCHAR(20),
+            latitude  NUMERIC(10,6),
+            longitude NUMERIC(10,6),
             created_at TIMESTAMP DEFAULT NOW()
         );
 
+        -- SEND TABLE
         CREATE TABLE IF NOT EXISTS send_table (
             id SERIAL PRIMARY KEY,
             status BOOLEAN DEFAULT FALSE
-        );        
+        );
+
+        -- =======================
+        -- INDEXES
+        -- =======================
+
+        -- users.telegram_id uchun tez qidiruv
+        CREATE UNIQUE INDEX IF NOT EXISTS idx_users_telegram_id
+            ON users (telegram_id);
+
+        -- clients.user_id uchun JOIN va EXISTS tezlashadi
+        CREATE INDEX IF NOT EXISTS idx_clients_user_id
+            ON clients (user_id);
         """
 
         async with self.pool.acquire() as conn:

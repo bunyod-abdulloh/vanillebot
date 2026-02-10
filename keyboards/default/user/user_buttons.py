@@ -12,6 +12,16 @@ def get_phone_dkb():
     return kb
 
 
+def get_location_dkb():
+    kb = ReplyKeyboardMarkup(resize_keyboard=True)
+    kb.add(
+        KeyboardButton(
+            text="📍 Lokatsiyani yuborish",
+            request_location=True
+        )
+    )
+    return kb
+
 def user_main_button():
     markup = ReplyKeyboardMarkup(
         keyboard=[

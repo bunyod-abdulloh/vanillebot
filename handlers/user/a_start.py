@@ -10,14 +10,12 @@ from loader import dp, udb
 async def cmd_start(message: types.Message, state: FSMContext):
     await state.finish()
 
-    user = await udb.check_user(int(message.from_user.id))
+    telegram_id = int(message.from_user.id)
+    user = await udb.check_user(telegram_id)
 
-    if user:
-        await message.answer(
-            text=message.text, reply_markup=user_main_button()
-        )
-    else:
-        await message.answer(
-            text="Ism sharifingizni kiriting:"
-        )
-        await state.set_state("get_full_name")
+    if not user:
+        await udb.add_user(telegram_id)
+
+    await message.answer(
+        text=message.text, reply_markup=user_main_button()
+    )
