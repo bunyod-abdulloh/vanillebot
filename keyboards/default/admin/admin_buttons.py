@@ -10,8 +10,10 @@ def admins_main_dkb():
             web_app=WebAppInfo(url="https://google.com")
         )
     )
-    kb.add("✅ Oddiy post yuborish")
-    kb.add("🎞 Mediagroup post yuborish")
+    kb.add("😎 Foydalanuvchilar soni")
+    kb.add("➕ Mijoz qo'shish")
+    kb.add("✅ Oddiy post yuborish", "🎞 Mediagroup post yuborish")
+
     kb.add("🏡 Bosh sahifa")
 
     return kb

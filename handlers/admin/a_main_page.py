@@ -8,7 +8,7 @@ from magic_filter import F
 from filters import IsBotAdminFilter
 from keyboards.default.admin.admin_buttons import admins_main_dkb
 from keyboards.default.user.user_buttons import user_main_button
-from loader import dp, sdb
+from loader import dp, sdb, udb
 from services.helper_functions import send_message_to_users, send_media_group_to_users
 from states.admin import AdminSendStates
 
@@ -24,6 +24,15 @@ async def admin_main_page(message: types.Message, state: FSMContext):
     await state.finish()
 
     await message.answer(text="Admin panel", reply_markup=admins_main_dkb())
+
+
+@dp.message_handler(IsBotAdminFilter(), F.text == "😎 Foydalanuvchilar soni", state="*")
+async def handle_count_users(message: types.Message, state: FSMContext):
+    await state.finish()
+    count = await udb.count_users()
+    await message.answer(
+        text=f"Foydalanuvchilar soni: {count}"
+    )
 
 
 @dp.message_handler(IsBotAdminFilter(), F.text == "✅ Oddiy post yuborish", state="*")
