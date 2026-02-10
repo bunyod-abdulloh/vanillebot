@@ -34,7 +34,14 @@ def feedback_ikb(telegram_id):
     kb = InlineKeyboardMarkup(row_width=1)
     kb.add(
         InlineKeyboardButton(
-            text="Javob berish", callback_data=f"feedback_{telegram_id}"
+            text="💬 Javob berish",
+            callback_data=f"feedback_{telegram_id}"
+        )
+    )
+    kb.add(
+        InlineKeyboardButton(
+            text="➕ Mijoz qo'shish",
+            callback_data=f"client_{telegram_id}"
         )
     )
     return kb
