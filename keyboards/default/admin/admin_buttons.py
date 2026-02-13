@@ -1,5 +1,7 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 
+from data.config import WEB_APP_URL
+
 
 def admins_main_dkb():
     kb = ReplyKeyboardMarkup(resize_keyboard=True)
@@ -7,7 +9,7 @@ def admins_main_dkb():
     kb.add(
         KeyboardButton(
             text="🕸 Web panel",
-            web_app=WebAppInfo(url="https://google.com")
+            web_app=WebAppInfo(url=f"{WEB_APP_URL}/admin/")
         )
     )
     kb.add("😎 Foydalanuvchilar soni")

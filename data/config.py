@@ -9,6 +9,7 @@ ADMINS = env.list("ADMINS")
 IP = env.str("IP")
 ADMIN_GROUP = env.str("ADMIN_GROUP")
 REDIS_PASS = env.str("REDIS_PASS")
+WEB_APP_URL = env.str("WEB_APP_URL")
 
 DB_USER = env.str("DB_USER")
 DB_PASS = env.str("DB_PASS")

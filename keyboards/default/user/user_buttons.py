@@ -1,5 +1,7 @@
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, KeyboardButtonRequestUser, WebAppInfo
 
+from data.config import WEB_APP_URL
+
 
 def get_phone_dkb():
     kb = ReplyKeyboardMarkup(resize_keyboard=True)
@@ -26,7 +28,7 @@ def user_main_button():
     markup = ReplyKeyboardMarkup(
         keyboard=[
             [
-                KeyboardButton(text="🍰 Katalog",  web_app=WebAppInfo(url="https://google.com"))
+                KeyboardButton(text="🍰 Katalog",  web_app=WebAppInfo(url=f"{WEB_APP_URL}/product/"))
             ],
             [
                 KeyboardButton(text="🧁 Shaxsiy kabinet"),
