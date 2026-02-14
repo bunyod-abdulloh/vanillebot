@@ -28,7 +28,7 @@ def user_main_button():
     markup = ReplyKeyboardMarkup(
         keyboard=[
             [
-                KeyboardButton(text="🍰 Katalog",  web_app=WebAppInfo(url=f"{WEB_APP_URL}/product"))
+                KeyboardButton(text="🍰 Katalog",  web_app=WebAppInfo(url=f"{WEB_APP_URL[1]}/product"))
             ],
             [
                 KeyboardButton(text="🧁 Shaxsiy kabinet"),
