@@ -32,11 +32,11 @@ def user_main_buttonss():
 
     return btn
 
-def user_main_button(user_id):
+def user_main_button():
     markup = ReplyKeyboardMarkup(
         keyboard=[
             [
-                KeyboardButton(text="🍰 Katalog",  web_app=WebAppInfo(url=f"https://www.vanill.uz/product/{user_id}"))
+                KeyboardButton(text="🍰 Katalog",  web_app=WebAppInfo(url="https://www.vanill.uz/product/"))
             ],
             [
                 KeyboardButton(text="🧁 Shaxsiy kabinet"),
