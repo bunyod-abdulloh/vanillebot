@@ -99,5 +99,5 @@ async def send_media_to_bot_second(message: types.Message, album: List[types.Mes
 async def back_to_main(message: types.Message, state: FSMContext):
     await state.finish()
     await message.answer(
-        text="Bosh sahifa", reply_markup=user_main_button(message.from_user.id)
+        text="Bosh sahifa", reply_markup=user_main_button()
     )
