@@ -24,7 +24,7 @@ def get_location_dkb():
     )
     return kb
 
-def user_main_button():
+def user_main_buttonss():
     btn = InlineKeyboardMarkup()
     btn.add(
     InlineKeyboardButton(
@@ -32,7 +32,7 @@ def user_main_button():
 
     return btn
 
-def user_main_buttonss():
+def user_main_button():
     markup = ReplyKeyboardMarkup(
         keyboard=[
             [
