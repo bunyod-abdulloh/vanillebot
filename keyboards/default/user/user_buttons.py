@@ -1,6 +1,4 @@
-from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, KeyboardButtonRequestUser, WebAppInfo, InlineKeyboardMarkup, InlineKeyboardButton
-
-from data.config import WEB_APP_URL
+from aiogram.types import ReplyKeyboardMarkup, KeyboardButton, WebAppInfo
 
 
 def get_phone_dkb():
@@ -24,13 +22,6 @@ def get_location_dkb():
     )
     return kb
 
-def user_main_buttonss():
-    btn = InlineKeyboardMarkup()
-    btn.add(
-    InlineKeyboardButton(
-        text="Salom", web_app=WebAppInfo(url="https://www.vanill.uz/product")))
-
-    return btn
 
 def user_main_button():
     markup = ReplyKeyboardMarkup(

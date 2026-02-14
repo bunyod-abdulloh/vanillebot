@@ -2,7 +2,7 @@ from aiogram import types
 from aiogram.dispatcher import FSMContext
 from magic_filter import F
 
-from keyboards.inline.user.base_ikbs import add_personal_datas_ikb, edit_datas_ikb
+from keyboards.inline.user.base_ikbs import edit_datas_ikb
 from loader import dp, clsdb
 
 
@@ -16,9 +16,13 @@ async def personal_kabinet(message: types.Message, state: FSMContext):
 
     if not user:
         await message.answer(
-            text="Mahsulotlarimizdan buyurtma qilish uchun ism-sharif, telefon raqam va yetkazib berishimiz uchun lokatsiyangizni kiritishingiz lozim!",
-            reply_markup=add_personal_datas_ikb()
+            text="Ushbu bo'limdan foydalanish uchun 💬 Taklif va shikoyatlar bo'limiga yozing, admin Sizni mijozlarimiz "
+                 "safiga qo'shib qo'yadi"
         )
+        # await message.answer(
+        #     text="Mahsulotlarimizdan buyurtma qilish uchun ism-sharif, telefon raqam va yetkazib berishimiz uchun lokatsiyangizni kiritishingiz lozim!",
+        #     reply_markup=add_personal_datas_ikb()
+        # )
     else:
         data = await clsdb.get_client(telegram_id)
         full_name = data["full_name"]

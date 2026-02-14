@@ -88,7 +88,7 @@ async def process_location(message: types.Message, state: FSMContext):
         await clsdb.set_location(latitude, longitude, telegram_id)
 
         await message.answer(
-            text="Lokasiya muvaffaqiyatli o'zgartirildi!", reply_markup=user_main_button(message.from_user.id)
+            text="Lokasiya muvaffaqiyatli o'zgartirildi!", reply_markup=user_main_button()
         )
         await state.finish()
     else:

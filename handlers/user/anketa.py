@@ -85,6 +85,6 @@ async def get_location(message: types.Message, state: FSMContext):
     await message.answer(
         text=f"Ro'yxatdan o'tish muvaffaqiyatli yakunlandi!\n\nIsm sharifingiz: {full_name}\n"
              f"Telefon raqamingiz: {phone}",
-        reply_markup=user_main_button(message.from_user.id)
+        reply_markup=user_main_button()
     )
     await state.finish()
