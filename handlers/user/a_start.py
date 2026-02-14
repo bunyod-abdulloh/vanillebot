@@ -17,5 +17,5 @@ async def cmd_start(message: types.Message, state: FSMContext):
         await udb.add_user(telegram_id)
 
     await message.answer(
-        text=message.text, reply_markup=user_main_button(message.from_user.id)
+        text=message.text, reply_markup=user_main_button()
     )
