@@ -28,7 +28,7 @@ def user_main_button():
     btn = InlineKeyboardMarkup()
     btn.add(
     InlineKeyboardButton(
-        text="Salom", web_app=WebAppInfo(url="https://www.vanill.uz/product"))
+        text="Salom", web_app=WebAppInfo(url="https://www.vanill.uz/product")))
 
     return btn
 
