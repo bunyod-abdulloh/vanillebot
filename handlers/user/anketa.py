@@ -4,7 +4,7 @@ from magic_filter import F
 
 from keyboards.default.user.user_buttons import get_phone_dkb, user_main_button, get_location_dkb
 from keyboards.inline.user.base_ikbs import add_personal_datas_ikb
-from loader import dp, udb, clsdb
+from loader import dp, clsdb
 from services.helper_functions import validate_full_name, validate_phone_number
 
 
@@ -85,6 +85,6 @@ async def get_location(message: types.Message, state: FSMContext):
     await message.answer(
         text=f"Ro'yxatdan o'tish muvaffaqiyatli yakunlandi!\n\nIsm sharifingiz: {full_name}\n"
              f"Telefon raqamingiz: {phone}",
-        reply_markup=user_main_button()
+        reply_markup=user_main_button(message.from_user.id)
     )
     await state.finish()

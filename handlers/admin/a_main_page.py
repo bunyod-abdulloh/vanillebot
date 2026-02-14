@@ -48,7 +48,7 @@ async def send_to_bot_users(message: types.Message):
 @dp.message_handler(state=AdminSendStates.SEND_TO_USERS, content_types=types.ContentTypes.ANY)
 async def send_to_bot_users_two(message: types.Message, state: FSMContext):
     await state.finish()
-    await message.answer(text="Xabar yuborish boshlandi!", reply_markup=user_main_button())
+    await message.answer(text="Xabar yuborish boshlandi!", reply_markup=user_main_button(message.from_user.id))
 
     success_count, failed_count = await send_message_to_users(message)
 
@@ -72,7 +72,7 @@ async def send_media_to_bot(message: types.Message):
                     is_media_group=True)
 async def send_media_to_bot_second(message: types.Message, album: List[types.Message], state: FSMContext):
     await state.finish()
-    await message.answer(text="Xabar yuborish boshlandi!", reply_markup=user_main_button())
+    await message.answer(text="Xabar yuborish boshlandi!", reply_markup=user_main_button(message.from_user.id))
     try:
 
         media_group = types.MediaGroup()
@@ -99,5 +99,5 @@ async def send_media_to_bot_second(message: types.Message, album: List[types.Mes
 async def back_to_main(message: types.Message, state: FSMContext):
     await state.finish()
     await message.answer(
-        text="Bosh sahifa", reply_markup=user_main_button()
+        text="Bosh sahifa", reply_markup=user_main_button(message.from_user.id)
     )
